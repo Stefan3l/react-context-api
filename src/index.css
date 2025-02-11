@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+/* -----------------
+    GENERALS
+----------------- */
+
+body {
+  background-color: #f1f8ff;
+}
+
+.section-footer {
+  background-color: #161014;
+}
+
+/* -----------------
+   FOOTER
+----------------- */
+
+/* -----------------
+   HOME PAGE
+----------------- */
+
+.home-page {
+  background-image: url("../image/restaurant.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 800px;
+  position: relative;
+}
+
+.spin-animation {
+  animation: spin 30s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.active {
+  @apply text-amber-500 font-bold;
+}
+
+.ms-card-hover {
+  transition: box-shadow 0.5s ease;
+}
+
+.ms-card-hover:hover {
+  box-shadow: 0 0 20px 5px rgba(255, 255, 0, 0.8);
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.ms-form {
+  background-color: #161014;
+}
+
+.ms-image {
+  width: 300px;
+  transition: 0.5s ease;
+}
+
+.ms-image:hover {
+  transform: scale(1.1);
+}
+
+/* -----------------
+   MENU PAGE
+----------------- */
+
+.menu-page {
+  background-image: url("../image/restaurant-menu.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 800px;
+  position: relative;
+}
+
+.card {
+  border-radius: 10px;
+  background-color: lightgray;
+  padding: 10px;
+  transition: opacity 0.6s ease, box-shadow 0.6s ease;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.card:hover {
+  box-shadow: 0 0 20px 5px rgba(255, 255, 0, 0.8);
+}
+
+.cards:hover > :not(:hover) {
+  opacity: 0.3;
+}
+
+.price {
+  border-bottom: 1px solid black;
+  width: 60px;
+}
+
+.login-text {
+  font-size: 50px;
+  font-weight: bold;
+  color: #bdd2c7;
+  -webkit-text-stroke: 3px #fff;
+  text-transform: uppercase;
+  text-align: center;
+}
