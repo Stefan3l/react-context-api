@@ -1,12 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { SearchContext } from "../contexts/SearchContext";
 
 // Import Button
 import ButtonBookTable from "../components/ButtonBookTable";
 
 export default function Menu() {
   const [pizzasList, setPizzasList] = useState([]);
+  const { search } = useContext(SearchContext);
   const addPizzas = () => {
     axios.get("http://localhost:3001/posts").then(function (res) {
       const pizzas = res.data;
@@ -15,6 +17,12 @@ export default function Menu() {
   };
 
   useEffect(addPizzas, []);
+
+  // Dato derivato dallo stato "menu"
+
+  const menuFiltered = pizzasList.filter((pasta) =>
+    pasta.titolo.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <>
@@ -39,7 +47,7 @@ export default function Menu() {
           </h1>
         </div>
         <div className="cards grid grid-cols-1 md:grid-cols-2 gap-10 mt-10 mb-10 px-3.5">
-          {pizzasList.map((elm) => {
+          {menuFiltered.map((elm) => {
             return (
               <div key={elm.id} className="card flex gap-2.5 cursor-pointer">
                 <div className="flex-col p-2.5 flex-wrap">
